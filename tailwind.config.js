@@ -20,6 +20,7 @@ export default {
                 primary: '#09425F',
                 secondary: '#06739C',
                 tertiary: '#16B0CA',
+                muda: '#B1D3E4',
                 background: '#F3F8FF',
                 abubiru: '#6796AB'
             },
