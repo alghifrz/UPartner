@@ -1,5 +1,4 @@
-<x-header>{{ $landingpage['header'] }}</x-header>
-<body class="bg-background">
+<x-layout :header="$header">
     <img class="absolute h-full top-0 w-full z-0" src="img/bg.png" alt="Your Company">
     <div class="min-h-full z-20"> 
         <div class="pt-12">
@@ -79,6 +78,4 @@
             <x-footer :footer="$footer" />
         </main>
     </div>
-      
-</body>
-</html>
+</x-layout>

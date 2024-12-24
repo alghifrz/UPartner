@@ -27,27 +27,27 @@ class LandingPage {
             'judulFitur' => 'Fitur UPartner',
             'fitur' => [
                 [
-                    'link' => '# ',
+                    'link' => '/',
                     'gambar' => 'https://sanbercode.com/assets_new/images/icons/Biaya%20terjangkau.png',
                     'isi' => 'Pencarian Proyek Berdasarkan Jurusan',
                 ],
                 [
-                    'link' => '# ',
+                    'link' => '/',
                     'gambar' => 'https://sanbercode.com/assets_new/images/icons/Zero%20to%20Hero.png',
                     'isi' => 'Pendaftaran Proyek bagi Mahasiswa dan Dosen',
                 ],
                 [
-                    'link' => '# ',
+                    'link' => '/',
                     'gambar' => 'https://sanbercode.com/assets_new/images/icons/Zero%20to%20Hero.png',
                     'isi' => 'Pembuatan & Pengelolaan Proyek bagi Dosen',
                 ],
                 [
-                    'link' => '# ',
+                    'link' => '/',
                     'gambar' => 'https://sanbercode.com/assets_new/images/icons/Zero%20to%20Hero.png',
                     'isi' => 'Riwayat Linimasa Proyek',
                 ],
                 [
-                    'link' => '# ',
+                    'link' => '/',
                     'gambar' => 'https://sanbercode.com/assets_new/images/icons/Zero%20to%20Hero.png',
                     'isi' => 'Pengelolaan Profil',
                 ],
@@ -55,17 +55,17 @@ class LandingPage {
             'judulAlasan' => 'Kenapa Harus UPartner ?',
             'alasan' => [
                 [
-                    'link' => '# ',
+                    'link' => '/',
                     'gambar' => '/img/alasan1.png',
                     'isi' => 'Pengerjaan proyek terorganisir',
                 ],
                 [
-                    'link' => '# ',
+                    'link' => '/',
                     'gambar' => '/img/alasan2.png',
                     'isi' => 'Kolaborasi tim dalam suatu proyek ',
                 ],
                 [
-                    'link' => '# ',
+                    'link' => '/',
                     'gambar' => '/img/alasan3.png',
                     'isi' => 'Penjadwalan proyek terstruktur',
                 ]
