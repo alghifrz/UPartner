@@ -5,6 +5,10 @@ use App\Http\Controllers\LandingPageController;
 
 Route::get('/', [LandingPageController::class, 'index']);
 
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),

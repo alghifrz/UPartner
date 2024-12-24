@@ -1,3 +1,4 @@
+@props(['navbarlanding'])
 <navbar class="bg-white py-16 sticky w-full top-0 z-40 mt-0" x-data="{ isOpen: false }">
     {{-- <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"> --}}
     <div class="mx-8 lg:mx-24">
@@ -10,12 +11,17 @@
             <div class="ml-10 flex items-baseline space-x-40 justify-end">
               <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
               <div class="space-x-4">
-                  <a href="/about" class="px-3 py-2 text-lg font-semibold {{ request()->is('about') ? 'text-secondary' : 'text-primary hover:text-secondary' }}" aria-current="page">Tentang Kami</a>
-                  <a href="/contact" class="px-3 py-2 text-lg font-semibold {{ request()->is('contact') ? 'text-secondary' : 'text-primary hover:text-secondary' }}">Kontak</a>
+                @foreach ($navbarlanding['menu'] as $menu)
+                  <a href="{{ $menu['link'] }}" 
+                    class="px-3 py-2 text-lg font-semibold {{ request()->is(ltrim($menu['link'], '/')) ? 'text-secondary' : 'text-primary hover:text-secondary' }}" 
+                    aria-current="page">
+                    {{ $menu['judul'] }}
+                  </a>
+                @endforeach        
               </div>
               <div class="space-x-4">
-                  <a href="{{ route('login') }}" class="rounded-full border-2 border-secondary px-6 py-2 text-lg font-semibold text-secondary hover:bg-gradient-to-t from-primary via-secondary to-secondary hover:text-white">Masuk</a>
-                  <a href="{{ route('register') }}" class="rounded-full border-2 border-secondary bg-gradient-to-t from-primary via-secondary to-secondary px-6 py-2 text-lg font-semibold text-white hover:bg-gradient-to-t hover:from-primary hover:via-primary hover:to-secondary hover:text-white">Daftar</a>
+                  <a href="{{ route('login') }}" class="rounded-full border-2 border-secondary px-6 py-2 text-lg font-semibold text-secondary hover:bg-gradient-to-t from-primary via-secondary to-secondary hover:text-white">{{ $navbarlanding['button'][0]['judul'] }}</a>
+                  <a href="{{ route('register') }}" class="rounded-full border-2 border-secondary bg-gradient-to-t from-primary via-secondary to-secondary px-6 py-2 text-lg font-semibold text-white hover:bg-gradient-to-t hover:from-primary hover:via-primary hover:to-secondary hover:text-white">{{ $navbarlanding['button'][1]['judul'] }}</a>
               </div>
 
             </div>
@@ -47,10 +53,16 @@
     <div x-show="isOpen" class="xl:hidden" id="mobile-menu">
       <div class="space-y-1 px-2 pb-3 pt-2 sm:px-3">
         <!-- Link items with conditional active class -->
-        <a href="/about" class="block rounded-md px-3 py-2 text-primary text-base font-semibold {{ request()->is('/about') ? 'text-secondary' : 'text-primary hover:text-secondary' }}" aria-current="page">Tentang Kami</a>
-        <a href="/contact" class="block rounded-md px-3 py-2 text-primary text-base font-semibold {{ request()->is('contact') ? 'text-secondary' : 'text-primary hover:text-secondary' }}">Kontak</a>
-        <a href="#" class="rounded-full border-2 border-secondary block text-center px-3 py-2 text-base font-bold text-secondary hover:bg-gradient-to-t hover:from-primary hover:via-primary hover:to-secondary hover:text-white">Masuk</a>
-        <a href="#" class="rounded-full border-2 border-secondary block text-center bg-gradient-to-t from-primary via-secondary to-secondary px-3 py-2 text-base font-bold text-white hover:bg-gradient-to-t hover:from-primary hover:to-secondary hover:text-white">Daftar</a>
+        @foreach ($navbarlanding['menu'] as $menu)
+            <a href="{{ $menu['link'] }}" 
+              class="block rounded-md px-3 py-2 text-primary text-base font-semibold {{ request()->is(ltrim($menu['link'], '/')) ? 'text-secondary' : 'text-primary hover:text-secondary' }}" 
+              aria-current="page">
+              {{ $menu['judul'] }}
+            </a>
+        @endforeach
+    
+        <a href="{{ route('login') }}" class="rounded-full border-2 border-secondary block text-center px-3 py-2 text-base font-bold text-secondary hover:bg-gradient-to-t hover:from-primary hover:via-primary hover:to-secondary hover:text-white">{{ $navbarlanding['button'][0]['judul'] }}</a>
+        <a href="{{ route('register') }}" class="rounded-full border-2 border-secondary block text-center bg-gradient-to-t from-primary via-secondary to-secondary px-3 py-2 text-base font-bold text-white hover:bg-gradient-to-t hover:from-primary hover:to-secondary hover:text-white">{{ $navbarlanding['button'][1]['judul'] }}</a>
       </div>
     </div>
 
