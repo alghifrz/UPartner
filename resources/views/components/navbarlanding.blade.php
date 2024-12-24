@@ -1,6 +1,6 @@
 <navbar class="bg-white py-16 sticky w-full top-0 z-40 mt-0" x-data="{ isOpen: false }">
     {{-- <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"> --}}
-    <div class="mx-24">
+    <div class="mx-8 lg:mx-24">
       <div class="flex h-16 items-center justify-between">
         
           <x-logo-u-partner></x-logo-u-partner>

@@ -6,7 +6,7 @@
         <x-navbarlanding></x-navbarlanding>
         </div>
         <main class="relative"> 
-            <div class="mx-4 md:mx-12 lg:mx-24 pt-8 md:pt-16">
+            <div class="mx-4 md:mx-12 lg:mx-24 pt-12 lg:pt-32 items-start flex min-h-screen sm:pt-8">
                 <div class="flex flex-col lg:flex-row items-start justify-between gap-8 lg:gap-0">
                     <div class="order-2 lg:order-1 text-center lg:text-left">
                         <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 md:mb-10 text-transparent bg-clip-text bg-gradient-to-r from-primary to-tertiary lg:mr-32">{{ $landingpage['title'] }}</h1>
