@@ -5,7 +5,7 @@
             <div class="text-center text-white p-5 md:p-0">
                 <img src="/img/logoUPartner.png" alt="logoUPartner" class="lg:h-80 w-auto mx-auto h-32 mb-2 md:mb-2">
                 <h1 class="text-4xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-8">UPartner</h1>
-                <p class="text-md md:text-lg">Anda seorang Dosen? <span class="font-semibold hover:underline cursor-pointer hover:text-tertiary"><a href="{{ route('loginDosen') }}">Masuk Disini</a></span></p>
+                <p class="text-md md:text-lg">Anda seorang Mahasiswa? <span class="font-semibold hover:underline cursor-pointer hover:text-tertiary"><a href="{{ route('login') }}">Masuk Disini</a></span></p>
             </div>
         </div>
 
@@ -17,11 +17,11 @@
                 <form method="POST" action="{{ route('login') }}" class="w-full">
                     @csrf
 
-                    <h1 class="text-2xl md:text-4xl font-extrabold text-primary mb-12 text-center">Masuk Mahasiswa</h1>
+                    <h1 class="text-2xl md:text-4xl font-extrabold text-primary mb-12 text-center">Masuk Dosen</h1>
                 
                     <div class="relative mb-6 text-start">
                         <x-label for="email" value="{{ __('Email') }}" class="text-primary text-xl mb-1"/>
-                        <input id="email" name="email" :value="old('email')" type="email" required autofocus autocomplete="nim" placeholder="Masukkan Email Anda" 
+                        <input id="email" name="email" :value="old('email')" type="email" required autofocus autocomplete="email" placeholder="Masukkan Email Anda" 
                             class="w-full py-3 px-5 pr-12 bg-gray-100 rounded-lg border-none outline-none text-sm md:text-base text-gray-700 font-medium">
                         <i class="bx bxs-id-card absolute right-5 top-2/3 -translate-y-1/2"></i>
                     </div>
@@ -50,7 +50,7 @@
                         Masuk
                     </button>
                     
-                    <p class="text-md md:text-lg text-white text-center">Belum punya akun? <span class="font-semibold hover:underline cursor-pointer hover:text-primary"><a href="{{ route('register') }}">Daftar</a></span></p>
+                    <p class="text-md md:text-lg text-white text-center">Belum punya akun? <span class="font-semibold hover:underline cursor-pointer hover:text-primary"><a href="{{ route('registerDosen') }}">Daftar</a></span></p>
                 </form>
             </div>
         </div>

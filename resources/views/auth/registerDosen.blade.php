@@ -10,7 +10,7 @@
             <form method="POST" action="{{ route('register') }}" class="w-full">
                 @csrf
 
-                <h1 class="text-2xl md:text-4xl font-extrabold text-primary -mt-3 md:mb-12">Daftar Mahasiswa</h1>
+                <h1 class="text-2xl md:text-4xl font-extrabold text-primary -mt-3 md:mb-12">Daftar Dosen</h1>
             
                 <div class="relative my-6 md:my-4 text-start">
                     <x-label for="name" value="{{ __('Nama Lengkap') }}" class="text-primary text-xl mb-1"/>
@@ -20,8 +20,8 @@
                 </div>
             
                 <div class="relative my-6 md:my-4 text-start">
-                    <x-label for="nim" value="{{ __('NIM') }}" class="text-primary text-xl mb-1"/>
-                    <input id="nim" name="nim" :value="old('nim')" type="text" required autofocus autocomplete="nim" placeholder="Masukkan NIM Anda" 
+                    <x-label for="nip" value="{{ __('NIP') }}" class="text-primary text-xl mb-1"/>
+                    <input id="nip" name="nip" :value="old('nip')" type="text" required autofocus autocomplete="nip" placeholder="Masukkan NIP Anda" 
                         class="w-full py-3 px-5 pr-12 bg-gray-100 rounded-lg border-none outline-none text-sm md:text-base text-gray-700 font-medium">
                     <i class="bx bxs-id-card absolute right-5 top-2/3 -translate-y-1/2"></i>
                 </div>
@@ -87,11 +87,8 @@
             <div class="text-center text-white p-5 md:p-0">
                 <img src="/img/logoUPartner.png" alt="logoUPartner" class="lg:h-80 w-auto mx-auto h-32 mb-2 md:mb-2">
                 <h1 class="text-4xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-8">UPartner</h1>
-                <p class="text-md md:text-lg">Anda seorang Dosen? <span class="font-semibold hover:underline cursor-pointer hover:text-tertiary"><a href="{{ route('registerDosen') }}">Daftar Disini</a></span></p>
-                {{-- <a href="{{ route('login') }}" 
-                    class="inline-block w-32 md:w-40 h-10 md:h-12 leading-[38px] md:leading-[46px] border-2 border-white rounded-lg text-white font-semibold hover:bg-white hover:text-[#7494ec] transition-colors">
-                    Login
-                </a> --}}
+                <p class="text-md md:text-lg">Anda seorang Mahasiswa? <span class="font-semibold hover:underline cursor-pointer hover:text-tertiary"><a href="{{ route('register') }}">Daftar Disini</a></span></p>
+
             </div>
         </div>
     </div>

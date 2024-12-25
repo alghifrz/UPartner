@@ -11,7 +11,7 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Mahasiswa extends Authenticatable
+class Dosen extends Authenticatable
 {
     use HasApiTokens;
 
@@ -27,10 +27,10 @@ class Mahasiswa extends Authenticatable
      * @var array<int, string>
      */
 
-    protected $table = 'mahasiswa';
+    protected $table = 'dosen';
 
     protected $fillable = [
-        'nim',
+        'nip',
         'name',
         'email',
         'password',

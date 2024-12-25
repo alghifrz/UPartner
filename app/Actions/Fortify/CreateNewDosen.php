@@ -2,14 +2,14 @@
 
 namespace App\Actions\Fortify;
 
-use App\Models\Mahasiswa;
+use App\Models\Dosen;
 use Illuminate\Http\Request;
 use Laravel\Jetstream\Jetstream;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
 
-class CreateNewMahasiswa implements CreatesNewUsers
+class CreateNewDosen implements CreatesNewUsers
 {
     use PasswordValidationRules;
 
@@ -18,10 +18,10 @@ class CreateNewMahasiswa implements CreatesNewUsers
      *
      * @param  array<string, string>  $input
      */
-    public function create(array $input): Mahasiswa
+    public function create(array $input): Dosen
     {
             Validator::make($input, [
-            'nim' => ['required', 'string', 'max:9', 'unique:mahasiswa,nim'],
+            'nip' => ['required', 'string', 'max:6', 'unique:Dosen,nip'],
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => $this->passwordRules(),
@@ -44,16 +44,15 @@ class CreateNewMahasiswa implements CreatesNewUsers
             $file->storeAs('public/uploads', $fileName);
         }
 
-        $mahasiswa = Mahasiswa::create([
-            'nim' => $input['nim'],
+        $Dosen = Dosen::create([
+            'nip' => $input['nip'],
             'name' => $input['name'],
             'email' => $input['email'],
             'password' => Hash::make($input['password']),
             'prodi_id' => $input['prodi_id'],
             'photo' => $fileName,  // Menggunakan $fileName yang benar
-
         ]);
         session()->flash('success', 'Registrasi berhasil! Selamat datang.');
-        return $mahasiswa;
+        return $Dosen;
     }
 }

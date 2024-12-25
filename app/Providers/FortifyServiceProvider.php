@@ -2,14 +2,16 @@
 
 namespace App\Providers;
 
+
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Laravel\Fortify\Fortify;
+use Illuminate\Support\Facades\Hash;
+use App\Actions\Fortify\RegisterAkun;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Cache\RateLimiting\Limit;
 use App\Actions\Fortify\ResetUserPassword;
-use App\Actions\Fortify\CreateNewMahasiswa;
 use App\Actions\Fortify\UpdateUserPassword;
 use Illuminate\Support\Facades\RateLimiter;
 use App\Actions\Fortify\UpdateUserProfileInformation;
@@ -29,8 +31,8 @@ class FortifyServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        // Fortify::createUsersUsing(CreateNewUser::class);
-        Fortify::createUsersUsing(CreateNewMahasiswa::class);
+        Fortify::createUsersUsing(RegisterAkun::class);
+
         Session::flash('success', 'Mahasiswa registered successfully');
         
         Fortify::updateUserProfileInformationUsing(UpdateUserProfileInformation::class);
@@ -46,5 +48,18 @@ class FortifyServiceProvider extends ServiceProvider
         RateLimiter::for('two-factor', function (Request $request) {
             return Limit::perMinute(5)->by($request->session()->get('login.id'));
         });
+
+        Fortify::authenticateUsing(function ($request) {
+            $user = \App\Models\Mahasiswa::where('email', $request->email)->first();
+        
+            if ($user && Hash::check($request->password, $user->password)) {
+                return $user; // Login berhasil
+            }
+        
+            // Login gagal
+            return null;
+        });
+
     }
+
 }
