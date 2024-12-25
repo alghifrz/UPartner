@@ -1,7 +1,7 @@
 <x-layoutregislogin :title="'Login'">
     <div class="relative w-[1200px] flex flex-col md:flex-row bg-white bg-opacity-30 backdrop-blur-md rounded-[30px] shadow-xl overflow-hidden m-3">
         <!-- Blue Panel -->
-        <div class="w-full md:w-1/2 bg-primary flex items-center justify-center py-40 rounded-tr-[200px] rounded-br-[200px]">
+        <div class="w-full md:w-1/2 bg-primary flex items-center justify-center py-20 md:py-40 md:rounded-tr-[200px] md:rounded-bl-none md:rounded-br-[200px] rounded-bl-[200px] rounded-br-[200px]">
             <div class="text-center text-white p-5 md:p-0">
                 <img src="/img/logoUPartner.png" alt="logoUPartner" class="lg:h-80 w-auto mx-auto h-32 mb-2 md:mb-2">
                 <h1 class="text-4xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-8">UPartner</h1>

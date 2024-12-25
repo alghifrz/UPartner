@@ -77,13 +77,13 @@
                 <button type="submit" class="lg:mb-6 w-full h-12 mt-8 md:mt-12 bg-primary rounded-lg shadow-md border-none cursor-pointer text-sm md:text-base text-white font-semibold hover:bg-secondary transition-colors">
                     Daftar
                 </button>
-                <p class="text-md md:text-lg text-white">Sudah punya akun? <span class="font-semibold hover:underline cursor-pointer hover:text-primary"><a href="{{ route('login') }}">Masuk</a></span></p>
+                <p class="text-md md:text-lg text-white">Sudah punya akun? <span class="font-semibold hover:underline cursor-pointer hover:text-primary"><a href="{{ route('loginDosen') }}">Masuk</a></span></p>
                 
             </form>
         </div>
 
         <!-- Blue Panel -->
-        <div class="w-full md:w-1/2 bg-primary flex items-center justify-center py-12 rounded-tl-[200px] rounded-bl-[200px]">
+        <div class="w-full md:w-1/2 bg-primary flex items-center justify-center py-12 md:rounded-tl-[200px] md:rounded-tr-none md:rounded-bl-[200px] rounded-tl-[200px] rounded-tr-[200px]">
             <div class="text-center text-white p-5 md:p-0">
                 <img src="/img/logoUPartner.png" alt="logoUPartner" class="lg:h-80 w-auto mx-auto h-32 mb-2 md:mb-2">
                 <h1 class="text-4xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-8">UPartner</h1>

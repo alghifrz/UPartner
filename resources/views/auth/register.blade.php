@@ -83,7 +83,7 @@
         </div>
 
         <!-- Blue Panel -->
-        <div class="w-full md:w-1/2 bg-primary flex items-center justify-center py-12 rounded-tl-[200px] rounded-bl-[200px]">
+        <div class="w-full md:w-1/2 bg-primary flex items-center justify-center py-12 md:rounded-tl-[200px] md:rounded-tr-none md:rounded-bl-[200px] rounded-tl-[200px] rounded-tr-[200px]">
             <div class="text-center text-white p-5 md:p-0">
                 <img src="/img/logoUPartner.png" alt="logoUPartner" class="lg:h-80 w-auto mx-auto h-32 mb-2 md:mb-2">
                 <h1 class="text-4xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-8">UPartner</h1>

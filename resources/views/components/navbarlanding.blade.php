@@ -21,7 +21,7 @@
               </div>
               <div class="space-x-4">
                   <a href="{{ route('login') }}" class="rounded-full border-2 border-secondary px-6 py-2 text-lg font-semibold text-secondary hover:bg-gradient-to-t from-primary via-secondary to-secondary hover:text-white">{{ $navbarlanding['button'][0]['judul'] }}</a>
-                  <a href="{{ route('registerMahasiswa') }}" class="rounded-full border-2 border-secondary bg-gradient-to-t from-primary via-secondary to-secondary px-6 py-2 text-lg font-semibold text-white hover:bg-gradient-to-t hover:from-primary hover:via-primary hover:to-secondary hover:text-white">{{ $navbarlanding['button'][1]['judul'] }}</a>
+                  <a href="{{ route('register') }}" class="rounded-full border-2 border-secondary bg-gradient-to-t from-primary via-secondary to-secondary px-6 py-2 text-lg font-semibold text-white hover:bg-gradient-to-t hover:from-primary hover:via-primary hover:to-secondary hover:text-white">{{ $navbarlanding['button'][1]['judul'] }}</a>
               </div>
 
             </div>
