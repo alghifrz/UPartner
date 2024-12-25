@@ -47,7 +47,7 @@
                 <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 md:mb-12 text-center text-white">{{ $landingpage['judulFitur']}}</h1>
                 <div class="mx-0 md:mx-0 lg:mx-24 flex flex-wrap justify-center gap-8 md:gap-16">
                     @foreach($landingpage['fitur'] as $fitur)
-                        <a href="{{ $fitur['link'] }}" class="fitur-item w-full sm:w-[45%] md:w-[30%] lg:w-[25%] h-auto bg-white bg-opacity-20 backdrop-blur-sm rounded-2xl p-4 justify-center text-center flex flex-col items-center shadow-lg hover:cursor-pointer hover:scale-105 hover:duration-500 z-10">
+                        <a href="{{ $fitur['link'] }}" class="fitur-item w-full sm:w-[45%] md:w-[30%] lg:w-[25%] h-64 bg-white bg-opacity-20 backdrop-blur-sm rounded-2xl p-4 justify-center text-center flex flex-col items-center shadow-lg hover:cursor-pointer hover:scale-105 hover:duration-500 z-10">
                             <img src="{{ $fitur['gambar'] }}" alt="Fitur Gambar" class="h-[100px] md:h-[150px] w-auto mx-auto">
                             <p class="text-lg md:text-xl font-semibold text-white">{{ $fitur['isi'] }}</p>
                         </a>
