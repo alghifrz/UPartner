@@ -8,7 +8,7 @@ class NavbarLanding {
             'menu' => [
                 [
                     'judul' => 'Tentang Kami',
-                    'link' => '#',
+                    'link' => '/tentang',
                 ],
                 [
                     'judul' => 'Kontak',

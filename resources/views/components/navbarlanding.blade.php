@@ -13,7 +13,7 @@
               <div class="space-x-4">
                 @foreach ($navbarlanding['menu'] as $menu)
                   <a href="{{ $menu['link'] }}" 
-                    class="px-3 py-2 text-lg font-semibold {{ request()->is(ltrim($menu['link'], '/')) ? 'text-secondary' : 'text-primary hover:text-secondary' }}" 
+                    class="mx-8 py-2 text-lg font-semibold {{ request()->is(ltrim($menu['link'], '/')) ? 'text-secondary border-b-2 border-secondary' : 'text-primary hover:text-secondary' }}" 
                     aria-current="page">
                     {{ $menu['judul'] }}
                   </a>

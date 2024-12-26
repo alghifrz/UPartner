@@ -8,8 +8,10 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\RegisterDosenController;
 use App\Http\Middleware\EnsureUserIsAuthenticated;
+use App\Http\Middleware\EnsureUserIsAuthenticatedDosen;
 
 Route::get('/', [LandingPageController::class, 'index']);
+Route::get('/tentang', [LandingPageController::class, 'about']);
 
 Route::get('/register', [AuthController::class, 'showRegistrationFormMahasiswa'])->name('register');
 Route::get('/registerDosen', [AuthController::class, 'showRegistrationFormDosen'])->name('registerDosen');
@@ -23,11 +25,11 @@ Route::get('/loginDosen', [AuthController::class, 'showLoginFormDosen'])->name('
 Route::post('/login', [AuthController::class, 'loginCustomMahasiswa'])->name('login.custom.mahasiswa');
 Route::post('/loginDosen', [AuthController::class, 'loginCustomDosen'])->name('login.custom.dosen');
 
-// Route::get('/dashboard-mahasiswa', [DashboardController::class, 'showDashboardMahasiswa'])->name('dashboard-mahasiswa');
-// Route::get('/dashboard-dosen', [DashboardController::class, 'showDashboardDosen'])->name('dashboard-dosen');
-
 Route::middleware(['web', EnsureUserIsAuthenticated::class])->group(function () {
     Route::get('/dashboard-mahasiswa', [DashboardController::class, 'showDashboardMahasiswa'])->name('dashboard-mahasiswa');
+});
+
+Route::middleware(['web', EnsureUserIsAuthenticatedDosen::class])->group(function () {
     Route::get('/dashboard-dosen', [DashboardController::class, 'showDashboardDosen'])->name('dashboard-dosen');
 });
 
