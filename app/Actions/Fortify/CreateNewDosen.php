@@ -49,6 +49,7 @@ class CreateNewDosen implements CreatesNewUsers
             'name' => $input['name'],
             'email' => $input['email'],
             'password' => Hash::make($input['password']),
+            'email_verified_at' => now(),
             'prodi_id' => $input['prodi_id'],
             'photo' => $fileName,  // Menggunakan $fileName yang benar
         ]);

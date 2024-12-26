@@ -7,7 +7,7 @@
             
             
 
-            <form method="POST" action="{{ route('register') }}" class="w-full">
+            <form method="POST" action="{{ route('register.custom.mahasiswa') }}" class="w-full">
                 @csrf
 
                 <h1 class="text-2xl md:text-4xl font-extrabold text-primary -mt-3 md:mb-12">Daftar Mahasiswa</h1>

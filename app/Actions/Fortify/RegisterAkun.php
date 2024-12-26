@@ -2,8 +2,9 @@
 
 namespace App\Actions\Fortify;
 
-use App\Models\Mahasiswa;
 use App\Models\Dosen;
+use App\Models\Mahasiswa;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
 
@@ -19,13 +20,16 @@ class RegisterAkun implements CreatesNewUsers
     {
         // Tentukan role dan buat pengguna sesuai role
         if (isset($input['nim'])) {
-            return (new CreateNewMahasiswa())->create($input);
+            $user = (new CreateNewMahasiswa())->create($input);
         } elseif (isset($input['nip'])) {
-            return (new CreateNewDosen())->create($input);
+            $user = (new CreateNewDosen())->create($input);
+        } else {
+            throw new \Exception('Invalid registration input');
         }
+        
+        Auth::login($user);
 
-        // Jika role tidak valid, kembalikan null atau lakukan penanganan error
-        return null;
+        return $user;
     }
 }
 

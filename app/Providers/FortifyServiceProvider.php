@@ -3,9 +3,11 @@
 namespace App\Providers;
 
 
+use App\Models\Mahasiswa;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Laravel\Fortify\Fortify;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Actions\Fortify\RegisterAkun;
 use Illuminate\Support\Facades\Session;
@@ -31,10 +33,7 @@ class FortifyServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Fortify::createUsersUsing(RegisterAkun::class);
-
-        Session::flash('success', 'Mahasiswa registered successfully');
-        
+        // Fortify::createUsersUsing(RegisterAkun::class); 
         Fortify::updateUserProfileInformationUsing(UpdateUserProfileInformation::class);
         Fortify::updateUserPasswordsUsing(UpdateUserPassword::class);
         Fortify::resetUserPasswordsUsing(ResetUserPassword::class);
@@ -49,16 +48,16 @@ class FortifyServiceProvider extends ServiceProvider
             return Limit::perMinute(5)->by($request->session()->get('login.id'));
         });
 
-        Fortify::authenticateUsing(function ($request) {
-            $user = \App\Models\Mahasiswa::where('email', $request->email)->first();
+        Fortify::authenticateUsing(function (Request $request) {
+            $credentials = $request->only('email', 'password');
         
-            if ($user && Hash::check($request->password, $user->password)) {
-                return $user; // Login berhasil
+            if (Auth::attempt($credentials)) {
+                return Auth::user();
             }
         
-            // Login gagal
             return null;
         });
+        
 
     }
 

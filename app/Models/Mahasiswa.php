@@ -36,7 +36,9 @@ class Mahasiswa extends Authenticatable
         'password',
         'prodi_id',
         'photo',
+        'email_verified_at',
     ];
+
 
     public function prodi()
     {
@@ -72,5 +74,10 @@ class Mahasiswa extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function getRoleAttribute()
+    {
+        return 'mahasiswa';
     }
 }

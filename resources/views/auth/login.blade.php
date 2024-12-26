@@ -1,3 +1,14 @@
+@if (session('error'))
+    <p style="color: red;">{{ session('error') }}</p>
+@endif
+
+@if (session('belumlogin'))
+    <p style="color: red;">{{ session('belumlogin') }}</p>
+@endif
+
+@if (session('success'))
+    <p style="color: green;">{{  session('success') }}</p>
+@endif
 <x-layoutregislogin :title="'Login'">
     <div class="relative w-[1200px] flex flex-col md:flex-row bg-white bg-opacity-30 backdrop-blur-md rounded-[30px] shadow-xl overflow-hidden m-3">
         <!-- Blue Panel -->
@@ -14,14 +25,14 @@
             <div class="w-full max-w-md px-8">
                 <x-validation-errors class="mb-4" />
 
-                <form method="POST" action="{{ route('login') }}" class="w-full">
+                <form method="POST" action="{{ route('login.custom.mahasiswa') }}" class="w-full">
                     @csrf
 
                     <h1 class="text-2xl md:text-4xl font-extrabold text-primary mb-12 text-center">Masuk Mahasiswa</h1>
                 
                     <div class="relative mb-6 text-start">
                         <x-label for="email" value="{{ __('Email') }}" class="text-primary text-xl mb-1"/>
-                        <input id="email" name="email" :value="old('email')" type="email" required autofocus autocomplete="nim" placeholder="Masukkan Email Anda" 
+                        <input id="email" name="email" :value="old('email')" type="email" required autofocus autocomplete="email" placeholder="Masukkan Email Anda" 
                             class="w-full py-3 px-5 pr-12 bg-gray-100 rounded-lg border-none outline-none text-sm md:text-base text-gray-700 font-medium">
                         <i class="bx bxs-id-card absolute right-5 top-2/3 -translate-y-1/2"></i>
                     </div>

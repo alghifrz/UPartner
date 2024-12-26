@@ -48,6 +48,7 @@ class CreateNewMahasiswa implements CreatesNewUsers
             'nim' => $input['nim'],
             'name' => $input['name'],
             'email' => $input['email'],
+            'email_verified_at' => now(),
             'password' => Hash::make($input['password']),
             'prodi_id' => $input['prodi_id'],
             'photo' => $fileName,  // Menggunakan $fileName yang benar

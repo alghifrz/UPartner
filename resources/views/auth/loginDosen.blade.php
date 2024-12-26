@@ -14,7 +14,7 @@
             <div class="w-full max-w-md px-8">
                 <x-validation-errors class="mb-4" />
 
-                <form method="POST" action="{{ route('login') }}" class="w-full">
+                <form method="POST" action="{{ route('login.custom.dosen') }}" class="w-full">
                     @csrf
 
                     <h1 class="text-2xl md:text-4xl font-extrabold text-primary mb-12 text-center">Masuk Dosen</h1>

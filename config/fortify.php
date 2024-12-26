@@ -1,6 +1,10 @@
 <?php
 
+use App\Models\Dosen;
+use App\Models\Mahasiswa;
 use Laravel\Fortify\Features;
+use Illuminate\Support\Facades\Auth;
+
 
 return [
 
@@ -73,7 +77,19 @@ return [
     |
     */
 
-    'home' => '/dashboard',
+    'home' => function () {
+        $user = Auth::guard('mahasiswa')->user() ?? Auth::guard('dosen')->user();
+
+        if ($user instanceof Mahasiswa) {
+            return '/dashboard-mahasiswa';
+        } elseif ($user instanceof Dosen) {
+            return '/dashboard-dosen';
+        }
+
+        return '/';
+    },
+
+
 
     /*
     |--------------------------------------------------------------------------
@@ -146,7 +162,7 @@ return [
     'features' => [
         Features::registration(),
         Features::resetPasswords(),
-        // Features::emailVerification(),
+        Features::emailVerification(),
         Features::updateProfileInformation(),
         Features::updatePasswords(),
         Features::twoFactorAuthentication([
